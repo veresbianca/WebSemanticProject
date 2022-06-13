@@ -1,0 +1,58 @@
+<div class="container">
+  <form [formGroup]="myForm" (ngSubmit)="submitForm()" novalidate>
+    <div class="misc-bottom-padding" >
+      <mat-label>Nume:</mat-label>
+      <mat-radio-group aria-label="Select an option" formControlName="user">
+        <div *ngFor="let user of users">
+          <mat-radio-button value="{{user.id}}">{{user.first_name}}</mat-radio-button>
+        </div>
+      </mat-radio-group>
+    </div>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Oras" formControlName="oras" />
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Tara" formControlName="tara" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <input
+        matInput
+        readonly
+        [matDatepicker]="picker"
+        placeholder="Data vizitei"
+        formControlName="dov"
+      />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <div class="button-wrapper">
+      <button mat-flat-button color="primary">Butonul 1</button>
+    </div>
+  </form>
+
+  <div class="button-wrapper">
+    <button mat-flat-button color="primary" (click)="insertTableValuesInServer2()" [disabled]="!button2Enabled">Butonul 2</button>
+  </div>
+
+  <table *ngIf="tableVisible">
+    <thead>
+      <th>Nume</th>
+      <th>Prenume</th>
+      <th>Oras</th>
+      <th>Tara</th>
+      <th>Data vizitei</th>
+    </thead>
+    <tbody *ngFor="let user of users">
+      <tr *ngFor="let city of user.cities">
+          <td>{{user.first_name}}</td>
+          <td>{{user.last_name}}</td>
+          <td>{{city.city_name}}</td>
+        <td>{{city.country_name}}</td>
+        <td>{{city.date_visited | date:'fullDate'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

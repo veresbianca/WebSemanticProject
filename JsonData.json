@@ -1,0 +1,94 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Rebeca",
+      "last_name": "Bora",
+      "age": 24
+    },
+    {
+      "id": 2,
+      "first_name": "Mircea",
+      "last_name": "Marius",
+      "age": 46
+    },
+    {
+      "id": 3,
+      "first_name": "Ana",
+      "last_name": "Maria",
+      "age": 32
+    }
+  ],
+  "cities": [
+    {
+      "userId": 1,
+      "city_name": "Bordeaux",
+      "country_name": "Frnata",
+      "date_visited": "2022-06-01T21:00:00.000Z",
+      "id": 1
+    },
+    {
+      "city_name": "Bucuresti",
+      "country_name": "Romania",
+      "date_visited": "2022-06-02T21:00:00.000Z",
+      "userId": 1,
+      "id": 2
+    },
+    {
+      "city_name": "Paris",
+      "country_name": "Franta",
+      "date_visited": "2022-06-02T21:00:00.000Z",
+      "userId": 1,
+      "id": 14
+    },
+    {
+      "city_name": "Brasov",
+      "country_name": "Romania",
+      "date_visited": "",
+      "userId": 3,
+      "id": 18
+    },
+    {
+      "city_name": "Bucuresti",
+      "country_name": "Romania",
+      "date_visited": "2022-06-13T21:00:00.000Z",
+      "userId": 1,
+      "id": 24
+    },
+    {
+      "city_name": "Hunedoara",
+      "country_name": "Romania",
+      "date_visited": "2022-06-06T21:00:00.000Z",
+      "userId": 1,
+      "id": 25
+    },
+    {
+      "city_name": "Constanta",
+      "country_name": "Romania",
+      "date_visited": "2022-06-15T21:00:00.000Z",
+      "userId": 2,
+      "id": 26
+    },
+    {
+      "city_name": "Baia Mare",
+      "country_name": "Romania",
+      "date_visited": "2022-06-02T21:00:00.000Z",
+      "userId": 3,
+      "id": 27
+    },
+    {
+      "city_name": "iasi",
+      "country_name": "romania",
+      "date_visited": "2022-06-08T21:00:00.000Z",
+      "userId": 1,
+      "id": 28
+    },
+    {
+      "city_name": "",
+      "country_name": "",
+      "date_visited": "",
+      "userId": "1",
+      "id": 29
+    }
+  ]
+}
