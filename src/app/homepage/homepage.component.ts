@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, NgForm} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {Apollo, gql} from "apollo-angular";
 
 @Component({
   selector: 'app-homepage',
@@ -16,7 +16,14 @@ export class HomepageComponent implements OnInit {
   tableVisible = false;
   button2Enabled = false;
 
-  constructor(public fb: FormBuilder, private http: HttpClient) {
+  table2Values: any = [];
+  table2Visible = false;
+
+  constructor(
+    public fb: FormBuilder,
+    private http: HttpClient,
+    private apollo: Apollo
+  ) {
   }
 
   ngOnInit(): void {
@@ -35,21 +42,20 @@ export class HomepageComponent implements OnInit {
       tara: [''],
       oras: [''],
       user: [],
-      dov: ['']
+      dov: ''
     });
   }
 
   submitForm() {
     const id =  parseInt(this.myForm.value.user);
-    console.log(id);
+    const StringDate = this.myForm.value.dov.toString();
     const data =  {
       "city_name": this.myForm.value.oras,
       "country_name": this.myForm.value.tara,
-      "date_visited": this.myForm.value.dov
+      "date_visited": StringDate
     }
 
-    // users/1
-    this.http.post('http://localhost:4000/users/1/cities', data)
+    this.http.post('http://localhost:4000/users/ ' + parseInt(this.myForm.value.user) + '/cities', data)
       .subscribe({
         next: (response) => this.users = response,
         error: (error) => console.log(error),
@@ -58,7 +64,7 @@ export class HomepageComponent implements OnInit {
     this.http.get('http://localhost:4000/users?_embed=cities')
       .subscribe({
         next: (response) => this.bindResponse(response),
-        error: (error) => console.log(error),
+        error: (error) => console.log(error.message),
       })
   }
 
@@ -68,7 +74,91 @@ export class HomepageComponent implements OnInit {
     this.button2Enabled = true;
   }
 
+  displayValuesInTable() {
+    this.apollo
+    .watchQuery({
+      query : gql`
+        {
+          users {
+            first_name,
+            last_name,
+            age
+            cities {
+              city_name,
+              country_name,
+              date_visited
+            }
+          }
+        }
+      `,
+    })
+    .valueChanges.subscribe((result: any) => {
+      this.table2Values = result.data.users;
+      this.table2Visible = true;
+
+    });
+  }
+
   insertTableValuesInServer2() {
-    console.log(this.users)
+    this.users.forEach((user: any) => {
+      const firstName = user.first_name;
+      const lastName = user.last_name;
+      const age = user.age;
+      const userId = user.id;
+
+      user.cities.forEach((city: any) => {
+        const cityName = city.city_name;
+        const countryName = city.country_name;
+        const dateVisited = city.date_visited;
+
+        const addNewCity = gql`
+          mutation addCity($city_name: String!, $country_name: String!, $date_visited: String!, $userId: Int! ) {
+            addCity(city_name: $city_name, country_name: $country_name, date_visited: $date_visited, userId: $userId) {
+              id,
+              city_name,
+              date_visited
+            }
+          }
+        `;
+
+        this.apollo
+        .mutate({
+          mutation: addNewCity,
+          variables: {
+            city_name: cityName,
+            country_name: countryName,
+            date_visited: dateVisited,
+            userId: userId
+          }
+        })
+        .subscribe((result: any) => {
+          console.log(result);
+        });
+      })
+
+      const addNewUser = gql`
+        mutation addUser($first_name: String!, $last_name: String!, $age: Int!) {
+          addUser(first_name: $first_name, last_name: $last_name, age: $age) {
+            id,
+            first_name
+          }
+        }
+      `;
+
+      this.apollo
+        .mutate({
+          mutation: addNewUser,
+          variables: {
+            first_name: firstName,
+            last_name: lastName,
+            age: age
+          }
+        })
+        .subscribe((result: any) => {
+          console.log(result);
+        });
+    });
+
+    this.displayValuesInTable();
   }
 }

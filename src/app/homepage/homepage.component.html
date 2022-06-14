@@ -22,6 +22,7 @@
         [matDatepicker]="picker"
         placeholder="Data vizitei"
         formControlName="dov"
+        dataformatas="div"
       />
       <mat-hint>MM/DD/YYYY</mat-hint>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -53,6 +54,26 @@
         <td>{{city.country_name}}</td>
         <td>{{city.date_visited | date:'fullDate'}}</td>
       </tr>
+    </tbody>
+  </table>
+
+
+  <table *ngIf="table2Visible">
+    <thead>
+    <th>Nume</th>
+    <th>Prenume</th>
+    <th>Oras</th>
+    <th>Tara</th>
+    <th>Data vizitei</th>
+    </thead>
+    <tbody *ngFor="let user of table2Values">
+    <tr *ngFor="let city of user.cities">
+      <td>{{user.first_name}}</td>
+      <td>{{user.last_name}}</td>
+      <td>{{city.city_name}}</td>
+      <td>{{city.country_name}}</td>
+      <td>{{city.date_visited | date:'fullDate'}}</td>
+    </tr>
     </tbody>
   </table>
 </div>

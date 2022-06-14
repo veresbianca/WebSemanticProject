@@ -24,71 +24,64 @@
       "userId": 1,
       "city_name": "Bordeaux",
       "country_name": "Frnata",
-      "date_visited": "2022-06-01T21:00:00.000Z",
+      "date_visited": "Thu Jun 16 2022 00:00:00 GMT+0300 (Eastern European Summer Time)",
       "id": 1
     },
     {
       "city_name": "Bucuresti",
       "country_name": "Romania",
-      "date_visited": "2022-06-02T21:00:00.000Z",
+      "date_visited": "Thu Jun 16 2022 00:00:00 GMT+0300 (Eastern European Summer Time)",
       "userId": 1,
       "id": 2
     },
     {
       "city_name": "Paris",
       "country_name": "Franta",
-      "date_visited": "2022-06-02T21:00:00.000Z",
+      "date_visited": "Thu Jun 16 2022 00:00:00 GMT+0300 (Eastern European Summer Time)",
       "userId": 1,
-      "id": 14
+      "id": 3
     },
     {
       "city_name": "Brasov",
       "country_name": "Romania",
-      "date_visited": "",
+      "date_visited": "Thu Jun 16 2022 00:00:00 GMT+0300 (Eastern European Summer Time)",
       "userId": 3,
-      "id": 18
+      "id": 4
     },
     {
       "city_name": "Bucuresti",
       "country_name": "Romania",
-      "date_visited": "2022-06-13T21:00:00.000Z",
+      "date_visited": "Thu Jun 16 2022 00:00:00 GMT+0300 (Eastern European Summer Time)",
       "userId": 1,
-      "id": 24
+      "id": 5
     },
     {
-      "city_name": "Hunedoara",
-      "country_name": "Romania",
-      "date_visited": "2022-06-06T21:00:00.000Z",
-      "userId": 1,
-      "id": 25
-    },
-    {
-      "city_name": "Constanta",
-      "country_name": "Romania",
-      "date_visited": "2022-06-15T21:00:00.000Z",
-      "userId": 2,
-      "id": 26
-    },
-    {
-      "city_name": "Baia Mare",
-      "country_name": "Romania",
-      "date_visited": "2022-06-02T21:00:00.000Z",
-      "userId": 3,
-      "id": 27
-    },
-    {
-      "city_name": "iasi",
+      "city_name": "slatina",
       "country_name": "romania",
-      "date_visited": "2022-06-08T21:00:00.000Z",
-      "userId": 1,
-      "id": 28
+      "date_visited": "Thu Jun 16 2022 00:00:00 GMT+0300 (Eastern European Summer Time)",
+      "userId": 3,
+      "id": 6
     },
     {
-      "city_name": "",
-      "country_name": "",
-      "date_visited": "",
-      "userId": "1",
-      "id": 29
+      "city_name": "sdsds",
+      "country_name": "Franta",
+      "date_visited": "Thu Jun 02 2022 00:00:00 GMT+0300 (Eastern European Summer Time)",
+      "userId": " 2",
+      "id": 7
+    },
+    {
+      "city_name": "dsds",
+      "country_name": "Franta",
+      "date_visited": "Thu Jun 02 2022 00:00:00 GMT+0300 (Eastern European Summer Time)",
+      "userId": " 3",
+      "id": 8
+    },
+    {
+      "city_name": "dsds",
+      "country_name": "romania",
+      "date_visited": "Wed Jun 22 2022 00:00:00 GMT+0300 (Eastern European Summer Time)",
+      "userId": " 1",
+      "id": 9
     }
   ]
 }

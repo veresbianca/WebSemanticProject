@@ -3,7 +3,6 @@ const cors = require('cors');
 const { json } = require('body-parser');
 const fs = require('fs');
 const { graphqlHTTP } = require('express-graphql');
-const { buildSchema } = require('graphql');
 const parse = require('csv-parse/lib/sync');
 
 const app = express()
@@ -19,24 +18,9 @@ const {
   GraphQLList
 } = require('graphql');
 
-const users = [
-  {
-    "id": 1,
-    "first_name": "Mircea",
-    "last_name": "Marius",
-    "age": 46
-  }
-]
+const users = []
 
-const cities = [
-  {
-    "city_name": "Constanta",
-    "country_name": "Romania",
-    "date_visited": "2022-06-15T21:00:00.000Z",
-    "userId": 1,
-    "id": 1
-  }
-]
+const cities = []
 
 const CityType = new GraphQLObjectType({
   name: 'City',
@@ -168,3 +152,5 @@ app.listen(4201, (err) => {
   }
   return console.log('Server listening on port 4201');
 });
+
+module.exports = new GraphQLSchema({query: RootQueryType, mutation: RootMutationType});
