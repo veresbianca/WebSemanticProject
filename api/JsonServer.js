@@ -150,7 +150,7 @@ app.listen(3000, (err) => {
   if (err) {
     return console.log(err);
   }
-  return console.log('Server listening on port 4201');
+  return console.log('Server listening on port 3000');
 });
 
 module.exports = new GraphQLSchema({query: RootQueryType, mutation: RootMutationType});
