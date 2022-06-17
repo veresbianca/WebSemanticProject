@@ -1,0 +1,11 @@
+{
+  "/api/*": {
+    "target": "https://digits2.mainzed.org",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "logLevel": "debug"
+  }
+}

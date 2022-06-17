@@ -1,4 +1,9 @@
 table {
   width: 100%;
   text-align: left;
+  border: 4px solid goldenrod;
+}
+
+td {
+  border: 1px solid black;
 }

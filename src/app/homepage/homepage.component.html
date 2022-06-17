@@ -30,7 +30,7 @@
     </mat-form-field>
 
     <div class="button-wrapper">
-      <button mat-flat-button color="primary">Butonul 1</button>
+      <button mat-flat-button color="primary" [disabled]="myForm.invalid">Butonul 1</button>
     </div>
   </form>
 
@@ -38,10 +38,19 @@
     <button mat-flat-button color="primary" (click)="insertTableValuesInServer2()" [disabled]="!button2Enabled">Butonul 2</button>
   </div>
 
+  <div class="button-wrapper">
+    <button id="button3" mat-flat-button color="primary" (click)="insertTableValuesInServer3()" [disabled]="!button3Enabled">Butonul 3</button>
+  </div>
+
+  <div class="button-wrapper">
+    <button id="button4" mat-flat-button color="primary" (click)="makeRequestForButton4()">Butonul 4</button>
+  </div>
+
   <table *ngIf="tableVisible">
     <thead>
       <th>Nume</th>
       <th>Prenume</th>
+      <th>Varsta</th>
       <th>Oras</th>
       <th>Tara</th>
       <th>Data vizitei</th>
@@ -50,6 +59,7 @@
       <tr *ngFor="let city of user.cities">
           <td>{{user.first_name}}</td>
           <td>{{user.last_name}}</td>
+          <td>{{user.age}}</td>
           <td>{{city.city_name}}</td>
         <td>{{city.country_name}}</td>
         <td>{{city.date_visited | date:'fullDate'}}</td>
@@ -62,6 +72,7 @@
     <thead>
     <th>Nume</th>
     <th>Prenume</th>
+    <th>Varsta</th>
     <th>Oras</th>
     <th>Tara</th>
     <th>Data vizitei</th>
@@ -70,10 +81,43 @@
     <tr *ngFor="let city of user.cities">
       <td>{{user.first_name}}</td>
       <td>{{user.last_name}}</td>
+      <td>{{user.age}}</td>
       <td>{{city.city_name}}</td>
       <td>{{city.country_name}}</td>
       <td>{{city.date_visited | date:'fullDate'}}</td>
     </tr>
+    </tbody>
+  </table>
+
+  <table *ngIf="table3Visible">
+    <thead>
+    <th>Nume/Prenume</th>
+    <th>Varsta</th>
+    <th>Oras</th>
+    <th>Tara</th>
+    <th>Data vizitei</th>
+    </thead>
+    <tbody *ngFor="let user of table3Values">
+    <tr>
+      <td>{{user.hasName.value}}</td>
+      <td>{{user.hasAge.value}}</td>
+      <td>{{user.visitedCity.value}}</td>
+      <td>{{user.country.value}}</td>
+      <td>{{user.dateVisited.value}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <table *ngIf="table4Visible">
+    <thead>
+      <th *ngFor="let entry of table4Headings">{{entry}}</th>
+    </thead>
+    <tbody *ngFor="let entry of table4Values">
+      <tr >
+        <td>{{entry.film.value}}</td>
+        <td>{{entry.budget.value}}</td>
+        <td>{{entry.starring.value}}</td>
+      </tr>
     </tbody>
   </table>
 </div>
