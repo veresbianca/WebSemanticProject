@@ -11,9 +11,10 @@ import {MatInputModule} from "@angular/material/input";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
 import { GraphQLModule } from './graphql.module';
-import {ApolloModule, APOLLO_OPTIONS} from 'apollo-angular';
+import {APOLLO_OPTIONS} from 'apollo-angular';
 import {HttpLink} from 'apollo-angular/http';
 import {InMemoryCache} from '@apollo/client/core';
+import {DatePipe} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import {InMemoryCache} from '@apollo/client/core';
   ],
   providers: [
     MatDatepickerModule,
+    DatePipe,
     {
       provide: APOLLO_OPTIONS,
       useFactory: (httpLink: HttpLink) => {

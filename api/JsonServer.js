@@ -146,7 +146,7 @@ app.use('/graphql', graphqlHTTP({
   graphiql: true
 }))
 
-app.listen(4201, (err) => {
+app.listen(3000, (err) => {
   if (err) {
     return console.log(err);
   }
