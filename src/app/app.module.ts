@@ -43,7 +43,7 @@ import {DatePipe} from "@angular/common";
         return {
           cache: new InMemoryCache(),
           link: httpLink.create({
-            uri: 'http://localhost:4201/graphql',
+            uri: 'http://localhost:3000/graphql',
           }),
         };
       },

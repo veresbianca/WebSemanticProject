@@ -234,7 +234,7 @@ export class HomepageComponent implements OnInit {
     const config = {
       params: {
         query: `PREFIX : <http://bicaveres.ro#>
-SELECT ?hasName ?hasAge ?visitedCity ?country
+SELECT ?hasName ?hasAge ?visitedCity ?country ?dateVisited
 WHERE {
     ?user :hasName ?hasName .
     ?user :hasAge ?hasAge .
